@@ -19,7 +19,7 @@ import P1.Nodo;
 
 /**
  *
- * @author jorgel
+ * @author 
  */
 public class Algoritmos {
 	
@@ -129,11 +129,18 @@ public class Algoritmos {
         	T[z].setTout(i,padre[i]);
             dibujo.addLinea(T[z].getLinea());
             z++;
+            if(NNodes<10){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    return null;
+                }
+            }
+            
         	}
         }
         
         recorrido(NNodes,distanciaMinima,padre);
-        System.out.println(caminoFinal);
         dibujo.setArista(T);
     	return T;
     
