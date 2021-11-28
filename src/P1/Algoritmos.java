@@ -24,6 +24,7 @@ import P1.Nodo;
 public class Algoritmos {
 	
 	public static String caminoFinal="";
+	public static double costefinal=0;
 
     public static Arista[] generarAristas(Punto[] puntos) {
         Arista[] aristas = new Arista[puntos.length * (puntos.length - 1) / 2];
@@ -129,6 +130,7 @@ public class Algoritmos {
         	T[z].setTout(i,padre[i]);
             dibujo.addLinea(T[z].getLinea());
             z++;
+            
             if(NNodes<10){
                 try {
                     Thread.sleep(1000);
@@ -138,11 +140,13 @@ public class Algoritmos {
             }
             
         	}
+            costefinal=costefinal+distanciaMinima[i];
+
         }
         
         recorrido(NNodes,distanciaMinima,padre);
         dibujo.setArista(T);
-    	return T;
+    	return T; 
     
     
     }
@@ -163,7 +167,9 @@ public class Algoritmos {
     public static String getTours() {
     	return caminoFinal;
     }
-    
+    public static double getCostefinal(){
+    	return costefinal;
+    }
     
     public static void recorrido(int actual,int[] padre) {
     	if(actual==-2) {

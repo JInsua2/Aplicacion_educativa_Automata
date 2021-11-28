@@ -193,13 +193,12 @@ public class Grafica extends JFrame implements ActionListener, ItemListener {
                                         a = Algoritmos.dijkstra(puntos, dibujo, mensaje);
                                         fin=System.nanoTime();
                                         String tours =Algoritmos.getTours();
+                                        double costefinal=0;
+                                        costefinal=Algoritmos.getCostefinal();
                                     
                                     double tiempo = (double) ((fin - inicio) / 1000000);
-                                    double coste = 0;
-                                    for (Arista a1 : a) {
-                                        coste = coste + a1.costeDijkstra();
-                                    }
-                                    mensaje.setText("Coste: " + coste+"\nTiempo de ejecución: "+tiempo+" milisegundos");
+                             
+                                    mensaje.setText("Coste: " + costefinal+"\nTiempo de ejecución: "+tiempo+" milisegundos");
                                     try {
                                         ficheros f = new ficheros();
                                         JFileChooser guardar = new JFileChooser();
@@ -207,7 +206,7 @@ public class Grafica extends JFrame implements ActionListener, ItemListener {
                                         guardar.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
                                         File ruta = guardar.getCurrentDirectory();
-                                        f.guardarFichero(a, ruta, guardar, coste,tours);
+                                        f.guardarFichero(a, ruta, guardar, costefinal,tours);
 
                                     } catch (Exception exp) {
                                         System.out.println("ERROR: El usuario no ha querido guardar el archivo" );
