@@ -103,8 +103,8 @@ public class Dibujo extends Canvas {
         }
         if(verticefinal !=null) {
         	dibujarVerticeFinal(trianguloVertice, verticefinal, g);
-        	g.setColor(Color.blue);
-        	g.drawOval(cordX(verticefinal.getx()), cordY(verticefinal.gety()), 10, 10);
+        	g.setColor(Color.red);
+        	g.fillOval(cordX(verticefinal.getx()), cordY(verticefinal.gety()), 6, 6);
         	trianguloVertice=null;
         	verticefinal=null;
             g.setColor(Color.BLACK);

@@ -80,7 +80,7 @@ public class Algoritmos {
     
     
     public static Arista[] dijkstra(Punto[] puntos, Dibujo dibujo, JTextArea mensaje) throws InterruptedException {
-		
+    	costefinal=0;
         int NNodes = puntos.length;
 //        Arista[] T = new Arista[puntos.length];
         Arista[] T = new Arista[puntos.length-1];
